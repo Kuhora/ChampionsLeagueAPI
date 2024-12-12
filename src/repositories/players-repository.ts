@@ -3,35 +3,35 @@ import { PlayerModel } from "../models/player-model";
 const database: PlayerModel[] = [
     {
     "id": 1,
-    "name": "Cristiano Ronaldo",
-    "club": "Al-Nassr",
-    "nationality": "Portugal",
-    "position": "Forward",
+    "name": "Marco Verratti",
+    "club": "Paris Saint-Germain",
+    "nationality": "Italy",
+    "position": "Midfielder",
     "statistics": {
-    "Overall": 91,
-    "Pace": 87,
-    "Shooting": 93,
-    "Passing": 82,
-    "Dribbling": 88,
-    "Defending": 35,
-    "Physical": 77
-        }
+    "Overall": 89,
+    "Pace": 73,
+    "Shooting": 74,
+    "Passing": 91,
+    "Dribbling": 87,
+    "Defending": 72,
+    "Physical": 71
+    }
     },
     {
     "id": 2,
-    "name": "Lionel Messi",
-    "club": "Inter Miami",
-    "nationality": "Argentina",
+    "name": "Vinícius Júnior",
+    "club": "Real Madrid",
+    "nationality": "Brazil",
     "position": "Forward",
     "statistics": {
-    "Overall": 92,
-    "Pace": 85,
-    "Shooting": 92,
-    "Passing": 91,
-    "Dribbling": 94,
-    "Defending": 38,
-    "Physical": 65
-        }
+    "Overall": 89,
+    "Pace": 95,
+    "Shooting": 80,
+    "Passing": 78,
+    "Dribbling": 92,
+    "Defending": 35,
+    "Physical": 69
+    }  
     },
     {
     "id": 3,
@@ -97,4 +97,12 @@ export const findPlayerById = async (
 
 export const insertPlayer = async(player:PlayerModel) => {
     database.push(player);
+};
+
+export const deleteOnePlayer = async (id:number) =>{
+    const index = database.findIndex(player => player.id === id);
+
+    if(index !== -1){
+        database.splice(index, 1);
+    }
 };
